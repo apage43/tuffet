@@ -86,7 +86,8 @@
     (syncup
       (merge
         (select-keys opts [:couchbase :couchdb :db :bucket :forever])
-        {:checkpoint-every (read-string (:checkpoint-period opts))}
+        {:checkpoint-every (read-string (:checkpoint-period opts))
+         :password (:bucket-password opts)}
         (when (:couchdb-user opts)
           {:couchdbauth [(:couchdb-user opts) (:couchdb-password opts)]})))))
 
